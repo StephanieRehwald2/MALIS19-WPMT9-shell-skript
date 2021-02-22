@@ -9,8 +9,10 @@
 cd ..
 
 # Die Datei enthält überflüssige Zeilen, die mit * oder MAYBE beginnen. Wähle nur die Zeilen aus, die NICHT mit * oder MAYBE beginnen. Die Invertierung wird mit -v erreicht.
+# Übergebe zum nächsten Auswahlschritt, in dem die Zeilenanfänge IMPORTANT und IMPORTANT! herausgelöscht werden.
+# Zusätzlich müssen 2 Tabs mitgelöscht werden, damit die richtige Spaltenreihenfolge erhalten wird.
 # kontrolliere den Zwischenstand in der Datei zwischenstand.tsv
-grep -v "#" 2020-05-23-Article_list_dirty.tsv | grep -v  "MAYBE" >zwischenstand.tsv 
+grep -v "#" 2020-05-23-Article_list_dirty.tsv | grep -v  "MAYBE" | sed 's/IMPORTANT\t\t//' | sed 's/IMPORTANT!\t\t//' >zwischenstand.tsv 
 
 
  
