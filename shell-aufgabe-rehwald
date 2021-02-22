@@ -2,9 +2,18 @@
 # MALIS 19 WPM T9, Aufgabe 2, Aufgabenteil "Shell-Skipt"
 # Aufgabenstellung: Die Datei 2020-05-23-Article_list_dirty.tsv wird durch das vorliegende Skript so bereinigt, dass sie nur noch 
 # die Spalten mit ISSN und Veröffentlichungsjahr enthält. Die Ausgabe ist die Datei "2020-05-23-Dates_and_ISSNs.tsv.
+# Die Datei enthält überflüssige Zeilen, die entfernt werden müssen.
+# Zusätzlich sind einzelne Zeilen eine Spalte nach rechts gerutscht, sodass jeweils die rste Zelle und der Tab gelöscht werden müssen.
 
-# Die Datei enthält überflüssige Zeilen, die entfernt werden müssen. 
-# Zusätzlich sind einzelne Zeilen eine Spalte nach rechts gerutscht, sodass jeweils die erste Zelle und der Tab gelöscht werden müssen.
+#cd 'C:\Users\User\Desktop\MALIS19WPMT9\shell-aufgabe'
+cd ..
+
+# Die Datei enthält überflüssige Zeilen, die mit * oder MAYBE beginnen. Wähle nur die Zeilen aus, die NICHT mit * oder MAYBE beginnen. Die Invertierung wird mit -v erreicht.
+# kontrolliere den Zwischenstand in der Datei zwischenstand.tsv
+grep -v "#" 2020-05-23-Article_list_dirty.tsv | grep -v  "MAYBE" >zwischenstand.tsv 
+
+
+ 
 
 
  
