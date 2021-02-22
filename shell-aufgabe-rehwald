@@ -15,9 +15,9 @@ cd ..
 # kontrolliere den Zwischenstand in der Datei zwischenstand.tsv
 grep -v "#" 2020-05-23-Article_list_dirty.tsv | grep -v  "MAYBE" | sed 's/IMPORTANT\t\t//' | sed 's/IMPORTANT!\t\t//' | cut -f 5,12 >zwischenstand.tsv
 # nun kann die Schreibweise der ISSN vereinheitlicht werden:
-sed -i 's/ISSN://g' zwischenstand.tsv | sed -i 's/issn://g' zwischenstand.tsv | sed -i 's/Issn://g' zwischenstand.tsv | sed -i 's/ //g' zwischenstand.tsv
+sed 's/ISSN://g' zwischenstand.tsv | sed 's/issn://g' | sed 's/Issn://g' | sed 's/ //g' > zwischenstand.tsv
 # Dubletten entfernen. Da nur aufeinander folgende Gleiche erkannt werden, müssen die Einträge zuerst sortiert werden:
-sort zwischenstand.tsv | uniq >2020-05-23-Dates_and_ISSNs.tsv
+sort zwischenstand.tsv | uniq | grep -v "ISSN" >2020-05-23-Dates_and_ISSNs.tsv
 # Aufräumen
 rm zwischenstand.tsv
 
